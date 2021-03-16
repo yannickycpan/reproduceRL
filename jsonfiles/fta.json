@@ -1,0 +1,149 @@
+{
+    "environment_names": ["MountainCar-v0", "highway-v0", "CartPole-v1", "Acrobot-v1", "LunarLander-v2"],
+    "numEvalEpisodes": 1,
+    "evalEverySteps":1000,
+    "maxTotalSamples": 500000,
+    "warmUpSteps": 5000,
+    "bufferSize": 1000000,
+    "batchSize":64,
+    "nruns":20,
+   "highway-v0":{
+      "EpisodeSamples": 100,
+      "stateBounded": false
+    },
+    "CartPole-v1":{
+          "maxTotalSamples": 400000,
+      "EpisodeSamples": 500,
+      "stateBounded": false
+    },
+  "Acrobot-v1":{
+    "maxTotalSamples": 200000,
+      "EpisodeSamples": 500,
+      "stateBounded": false
+    },
+  "MountainCar-v0":{
+    "maxTotalSamples": 400000,
+      "EpisodeSamples": 2000,
+    "stateBounded": false
+    },
+   "LunarLander-v2":{
+         "maxTotalSamples": 500000,
+      "EpisodeSamples": 0,
+    "stateBounded": false
+    },
+    "agent_names": ["NoTargetTCDQN", "NoTargetTCNN", "NoTargetTCDQN", "TCDQN"],
+    "NoTargetDQN":{
+    "sweeps": {
+      "epsilon": [0.1],
+	  "alpha":[0.0001],
+      "planningSteps": [1],
+      "gamma": [0.99],
+     "usetanh":[0], 
+      "n_h1":[64],
+      "n_h2":[64, 1280]
+    }
+    },
+  "DQN":{
+    "targetUpdateFrequency": 1000,
+    "sweeps": {
+      "epsilon": [0.1],
+	  "alpha":[0.0001],
+      "planningSteps": [1],
+      "gamma": [0.99],
+     "usetanh":[0],
+      "n_h1":[64],
+      "n_h2":[64, 1280]
+    }
+    },
+  "NoTargetDQNSpReg-L2":{
+    "sweeps": {
+      "epsilon": [0.1],
+	  "alpha":[0.0001],
+      "planningSteps": [1],
+      "reg": [0.001],
+      "gamma": [0.99],
+      "n_h1":[64],
+      "n_h2":[1280]
+    }
+    },
+  "NoTargetDQNSpReg-L1":{
+    "sweeps": {
+      "epsilon": [0.1],
+	  "alpha":[0.0001],
+      "planningSteps": [1],
+      "reg": [0.001],
+      "gamma": [0.99],
+      "n_h1":[64],
+      "n_h2":[1280]
+    }
+    },
+  "TCDQN":{
+      "targetUpdateFrequency": 1000,
+    "sweeps": {
+      "epsilon": [0.1],
+      "alpha":[0.0001],
+      "planningSteps": [1],
+      "gamma": [0.99],
+      "n_tiles":[20],
+      "n_tilings":[64],
+    "fta_input_max": [1.0],
+       "individual_tiling": [true],
+      "outofbound_reg": [0.0], 
+       "actfunctypeFTA": ["linear"],
+       "actfunctypeFTAstrength":["linear"],
+       "self_strength": [false],
+      "n_h1":[64],
+      "n_h2":[64]
+    }
+    },
+    "NoTargetTCDQN":{
+    "sweeps": {
+      "epsilon": [0.1],
+	  "alpha":[0.0001],
+      "planningSteps": [1],
+      "n_tiles":[20],
+      "n_tilings":[1],
+    "fta_input_max": [1.0],
+      "individual_tiling": [false],
+      "outofbound_reg": [0.0],
+       "actfunctypeFTA": ["linear"],
+       "actfunctypeFTAstrength":["linear"],
+       "self_strength": [false],
+      "gamma": [0.99],
+      "n_h1":[64],
+      "n_h2":[64]
+    }
+    },
+  "NoTargetRBFTCDQN":{
+    "sweeps": {
+      "epsilon": [0.1],
+	  "alpha":[0.0001],
+      "planningSteps": [1],
+     "n_tiles":[20],
+       "actfunctypeFTA": ["linear"],
+       "actfunctypeFTAstrength":["linear"],
+       "self_strength": [false],
+     "fta_eta": [2.0],
+       "fta_input_min": [-20.0],
+      "fta_input_max": [20.0],
+      "gamma": [0.99],
+      "n_h1":[64],
+      "n_h2":[64]
+    }
+    },
+  "NoTargetTCNN":{
+    "sweeps": {
+      "epsilon": [0.1],
+	  "alpha":[0.0001],
+      "gamma": [0.99],
+       "planningSteps": [1],
+      "n_tiles":[20],
+       "actfunctypeFTA": ["linear"],
+       "actfunctypeFTAstrength":["linear"],
+       "self_strength": [false],
+      "fta_eta": [0.0],
+      "n_h1":[64],
+      "n_h2":[64]
+    }
+    }
+}

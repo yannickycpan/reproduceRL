@@ -1,0 +1,96 @@
+{
+    "environment_names": ["Pendulum-v0", "InvertedPendulum-v2", "Swimmer-v2", "Hopper-v2",  "InvertedDoublePendulum-v2", "Reacher-v2", "Walker2d-v2", "HalfCheetah-v2", "InvertedPendulum-v2", "InvertedDoublePendulum-v2", "Ant-v2", "Humanoid-v2", "HumanoidStandup-v2"],
+    "numEvalEpisodes": 1,
+    "evalEverySteps": 1000,
+    "maxTotalSamples": 2000000,
+    "warmUpSteps": 5000,
+    "bufferSize": 1000000,
+    "batchSize": 64,
+  "nruns": 10,
+  "Pendulum-v0":{
+    "EpisodeSamples": 0,
+    "stateBounded": false
+   },
+   "Humanoid-v2":{
+   "EpisodeSamples": 0,
+   "stateBounded": false
+   },
+   "HumanoidStandup-v2":{
+   "EpisodeSamples": 0,
+   "stateBounded": false
+   },
+   "InvertedDoublePendulum-v2":{
+     "maxTotalSamples": 500000,
+   "EpisodeSamples": 0,
+   "stateBounded": false
+   },
+    "Swimmer-v2":{
+      "EpisodeSamples": 0,
+      "stateBounded": false
+    },
+  "Hopper-v2":{
+      "EpisodeSamples": 0,
+        "maxTotalSamples": 2000000,
+      "stateBounded": false
+    },
+  "Reacher-v2":{
+	  "maxTotalSamples": 1000000,
+      "EpisodeSamples": 0,
+      "stateBounded": false
+    },
+  "Walker2d-v2":{
+    "maxTotalSamples": 2000000,
+      "EpisodeSamples": 0,
+      "stateBounded": false
+    },
+  "HalfCheetah-v2":{
+      "EpisodeSamples": 0,
+      "stateBounded": false
+    },
+  "InvertedPendulum-v2":{
+    "maxTotalSamples": 1000000,
+      "EpisodeSamples": 0,
+      "stateBounded": false
+    },
+    "agent_names": ["NoTargetTCDDPG", "DDPG"],
+  "NoTargetTCDDPG":{
+    "sweeps": {
+      "planningSteps": [1],
+       "critic_factor":[10.0],
+      "sparseactor": [0],
+      "n_tiles":[20],
+      "n_tilings":[1],
+      "fta_input_max": [20.0],
+       "individual_tiling": [false],
+       "actfunctypeFTA": ["linear"],
+       "actfunctypeFTAstrength":["linear"],
+       "self_strength": [false],
+        "outofbound_reg": [0.0],
+        "gamma": [0.99],
+	  "alpha":[0.0001],
+       "n_h1":[200],
+      "n_h2":[100]
+    }
+    },
+  "NoTargetDDPG":{
+    "sweeps": {
+      "planningSteps": [1],
+       "critic_factor":[10.0],
+        "gamma": [0.99],
+	  "alpha":[0.0001],
+       "n_h1":[200],
+      "n_h2":[100, 2000]
+    }
+    },
+  "DDPG":{
+    "sweeps": {
+      "planningSteps": [1],
+       "critic_factor":[10.0],
+        "tau":[0.001],
+        "gamma": [0.99],
+	  "alpha":[0.0001],
+       "n_h1":[200],
+      "n_h2":[100, 2000]
+    }
+    }
+}
