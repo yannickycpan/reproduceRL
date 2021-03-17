@@ -12,4 +12,7 @@ The implementation contains more powerful functionality than the one introduced 
 
 You are welcome to send me feedbacks, my email address is inside the paper. 
 
+**How to run**
+python main.py jsonfiles/fta.json 0 will run the first configuration in the json file. Please see main.py for a detailed explanation regarding the meaning of the index after jsonfiles/fta.json
+
 **Wang, Han implements a Pytorch version of FTA**. The code is available at https://github.com/hwang-ua/fta_pytorch_implementation
