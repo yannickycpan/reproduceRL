@@ -1,8 +1,14 @@
 # reproduceRL
 
-This repository includes code for the following paper: 
+## How to run the code
 
-1. Fuzzy Tiling Activations: A Simple Approach to Learning Sparse Representations Online, https://openreview.net/forum?id=zElset1Klrp
+Experiment configurations are in the jsonfile files under jsonfiles directory. 
+
+**Example**: python main.py jsonfiles/fta.json 0 will run the first configuration in the json file. Please see main.py for a detailed explanation regarding the meaning of the index after jsonfiles/fta.json
+
+## This repository includes code for the following paper
+
+### Fuzzy Tiling Activations: A Simple Approach to Learning Sparse Representations Online, https://openreview.net/forum?id=zElset1Klrp
 
 In our main paper, we use the setting fta_input_max = 20.0 and fta_eta = 2.0 because we use 20 tiles. As a suggestion for practical usage, one may tune fta_input_max a bit. We observe that on those simple discrete domains, setting it as 1.0 can be better (please keep fta_eta = 2*fta_input_max/n_tiles). 
 
@@ -12,7 +18,6 @@ The implementation contains more powerful functionality than the one introduced 
 
 You are welcome to send me feedbacks, my email address is inside the paper. 
 
-**How to run**
-python main.py jsonfiles/fta.json 0 will run the first configuration in the json file. Please see main.py for a detailed explanation regarding the meaning of the index after jsonfiles/fta.json
-
 **Wang, Han implements a Pytorch version of FTA**. The code is available at https://github.com/hwang-ua/fta_pytorch_implementation
+
+
