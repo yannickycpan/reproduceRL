@@ -37,16 +37,18 @@ class FTAConfiguration(object):
         for key in configdict:
             if key in self.default_attributes:
                 setattr(self, key, configdict[key])
+                
+        if not hasattr(self, 'fta_input_min'):
+            self.fta_input_min = -self.fta_input_max
+        if not hasattr(self, 'fta_eta'):
+            self.fta_eta = (self.fta_input_max - self.fta_input_min)/self.n_tiles
+            
         for key in self.default_attributes:
             if not hasattr(self, key):
                 setattr(self, key, self.default_attributes[key])
         if self.n_tilings > 1:
             ''' if multi-tiling, use default setting, fta_input_max should be a list '''
             return
-        if not hasattr(self, 'fta_input_min'):
-            self.fta_input_min = -self.fta_input_max
-        if not hasattr(self, 'fta_eta'):
-            self.fta_eta = (self.fta_input_max - self.fta_input_min)/self.n_tiles
 
 
 class FTA(object):
