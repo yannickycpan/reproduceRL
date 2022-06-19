@@ -1,6 +1,6 @@
 # reproduceRL
 
-You are welcome to send me feedbacks via email: pan6 AT ualberta DOT ca
+You are welcome to send me feedbacks: pan6 AT ualberta DOT ca
 
 ## How to run the code
 
@@ -30,8 +30,6 @@ In our main paper, we use the setting fta_input_max = 20.0 and fta_eta = 2.0 bec
 If you do not want to use our repository, you can take out the ftann.py file under agents/network directory. An example is inside ftann.py file to show how to directly use our activation function. 
 
 The implementation of FTA contains more functionalities than those introduced in the paper. Specifically, it allows to use both 1) multiple tilings (each input scalar uses the same set of multiple tiling vectors); 2) individual tilings (each input scalar uses its own tiling vector); 3) different activations before and after applying FTA function. Please see the comments inside ftann.py for explanations. 
-
-You are welcome to send me feedbacks via email: pan6 AT ualberta DOT ca
 
 **Wang, Han implements a Pytorch version of FTA**. The code is available at https://github.com/hwang-ua/fta_pytorch_implementation
 
