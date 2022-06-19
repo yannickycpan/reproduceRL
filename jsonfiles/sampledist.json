@@ -1,0 +1,111 @@
+{
+    "environment_names": ["GridWorld", "MountainCar-v0", "CartPole-v1", "Acrobot-v1"],
+    "numEvalEpisodes": 1,
+    "evalEverySteps": 500,
+    "maxTotalSamples": 50000,
+    "warmUpSteps": 5000,
+    "bufferSize": 1000000,
+    "batchSize":32,
+    "nruns":20,
+    "CartPole-v1":{
+      "EpisodeSamples": 500,
+      "stateBounded": false
+    },
+  "Acrobot-v1":{
+      "EpisodeSamples": 500,
+      "stateBounded": false
+    },
+  "MountainCar-v0":{
+      "EpisodeSamples": 2000,
+    "stateBounded": false
+    },
+  "GridWorld":{
+      "EpisodeSamples": 2000,
+    "sparseReward": false,
+    "stateBounded": false
+    },
+    "agent_names": ["ModelDQN-LogTDHC", "ModelDQN-MixedQueueHC", "ModelDQN-ValueHC", "TDPrioritizedDQN", "DQN"],
+  "ModelDQN-LogTDHC":{
+      "targetUpdateFrequency": 1000,
+    "sweeps": {
+      "epsilon": [0.1],
+      "epsilonDecay": [1.0],
+      "epsilonMin": [0.01],
+	  "alpha":[0.001, 0.0001],
+          "queueSize": [1000000],
+      "gaAlpha":[0.1],
+      "nFromQueue": [16],
+     "planningSteps": [30],
+      "noiseScale":[0.05],
+      "gamma": [0.99],
+      "useTrueModel": [true],
+      "n_h1":[32],
+      "n_h2":[32]
+    }
+    },
+  "ModelDQN-MixedQueueHC":{
+      "targetUpdateFrequency": 1000,
+    "sweeps": {
+      "epsilon": [0.1],
+      "epsilonDecay": [1.0],
+      "epsilonMin": [0.01],
+	  "alpha":[0.001],
+          "queueSize": [1000000],
+       "usetanh":[1],
+      "gaAlpha":[0.01],
+      "nFromQueue": [16],
+     "planningSteps": [30],
+      "useTrueModel": [true],
+      "noiseScale":[0.05],
+      "gamma": [0.99],
+      "n_h1":[32],
+      "n_h2":[32]
+    }
+    },
+  "ModelDQN-ValueHC":{
+      "targetUpdateFrequency": 1000,
+    "sweeps": {
+      "epsilon": [0.1],
+      "epsilonDecay": [1.0],
+      "epsilonMin": [0.01],
+	  "alpha":[0.001, 0.0001],
+          "queueSize": [1000000],
+      "gaAlpha":[0.1],
+      "nFromQueue": [16],
+      "planningSteps": [30],
+            "useTrueModel": [true],
+      "noiseScale":[0.05],
+      "gamma": [0.99],
+      "n_h1":[32],
+      "n_h2":[32]
+    }
+    },
+    "DQN":{
+      "targetUpdateFrequency": 1000,
+    "sweeps": {
+      "epsilon": [0.1],
+      "epsilonDecay": [1.0],
+      "epsilonMin": [0.01],
+	  "alpha":[0.001, 0.0001],
+      "planningSteps": [5],
+      "gamma": [0.99],
+       "n_h1":[32],
+      "n_h2":[32]
+    }
+    },
+  "TDPrioritizedDQN":{
+      "targetUpdateFrequency": 1000,
+    "sweeps": {
+      "epsilon": [0.1],
+      "epsilonDecay": [1.0],
+      "epsilonMin": [0.01],
+	  "alpha":[0.001, 0.0001],
+      "planningSteps": [5],
+      "priorityScale": [1.0],
+      "nFromQueue": [16],
+      "gamma": [0.99],
+       "n_h1":[32],
+      "n_h2":[32]
+    }
+  }
+}

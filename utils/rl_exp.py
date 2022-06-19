@@ -1,7 +1,9 @@
 import numpy as np
 import random
 from environments.environments import Environment
-from environments.MountainCar import MountainCar
+from environments.GridWorld import GridWorld, GridWorldContinuous, MazeGridWorld, \
+    TwoGoalGridWorld
+from environments.MountainCar import MountainCar, MountainCarStop
 import time
 
 def make_environment(env_params):
@@ -14,6 +16,47 @@ def make_environment(env_params):
     elif env_name in ["highway-v0", "merge-v0", "roundabout-v0", "parking-v0", "intersection-v0"]:
         from environments.environments import HighwayEnvironment
         return HighwayEnvironment(env_params)
+    else:
+        return Environment(env_params)
+
+
+def make_environment(env_params):
+    env_name = env_params['name']
+    env_params['qnntype'] = 'Regular'
+    env_params['useAtari'] = False
+    env_params['statescale'] = 1.0
+    if env_name in ['ToughGridWorld', 'GridWorld', 'GridWorld-Rand']:
+        return GridWorld(env_params)
+    elif env_name == 'MazeGridWorld' or env_name == 'ContinuousMazeGridWorld':
+        return MazeGridWorld(env_params)
+    elif env_name == 'TwoGoalGridWorld':
+        return TwoGoalGridWorld(env_params)
+    elif env_name == 'GridWorldContinuous':
+        return GridWorldContinuous(env_params)
+    elif env_name in ['MountainCar-v0', 'MountainCar-Rand']:
+        return MountainCar(env_params)
+    elif env_name == 'MountainCarStop':
+        return MountainCarStop(env_params)
+    elif 'NoFrameskip-v4' in env_name:
+        print('no frameskip is used ----------------------- ')
+        from environments.environments import AtariEnvironment
+        env_params['type'] = 'Atari'
+        env_params['qnntype'] = 'Atari'
+        env_params['useAtari'] = True
+        env_params['statescale'] = 255.0
+        return AtariEnvironment(env_params)
+    elif env_name in ['space_invaders', 'seaquest', 'freeway', 'breakout', 'asterix']:
+        print('MINATARI is used -----------------------============================ ')
+        from environments.environments import MinAtariEnvironment
+        env_params['qnntype'] = 'MinAtari'
+        env_params['useAtari'] = True
+        return MinAtariEnvironment(env_params)
+    elif env_name in ["highway-v0", "merge-v0", "roundabout-v0", "parking-v0", "intersection-v0"]:
+        from environments.environments import HighwayEnvironment
+        return HighwayEnvironment(env_params)
+    elif 'Disc' in env_name:
+        from environments.environments import DiscretizedContinuous
+        return DiscretizedContinuous(env_params)
     else:
         return Environment(env_params)
 
@@ -38,6 +81,12 @@ def make_agent(agent_params):
     elif "TCDDPG" in agent_name:
         from agents.TCDDPG import TCDDPGAgent
         return TCDDPGAgent(agent_params)
+    elif 'ModelDQN' in agent_name:
+        from agents.ModelDQN import ModelDQNAgent
+        return ModelDQNAgent(agent_params)
+    elif 'ModelDDPG' in agent_name:
+        from agents.ModelDDPG import ModelDDPGAgent
+        return ModelDDPGAgent(agent_params)
     else:
         print("agent not found!!!")
         exit(0)
