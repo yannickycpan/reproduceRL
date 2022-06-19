@@ -1,0 +1,85 @@
+{
+    "environment_names": ["Pendulum-v0", "Hopper-v2"],
+    "numEvalEpisodes": 2,
+    "evalEverySteps": 1000,
+    "maxTotalSamples": 500000,
+    "warmUpSteps": 10000,
+    "bufferSize": 1000000,
+    "batchSize":32,
+    "nruns": 5,
+    "MountainCarContinuous-v0":{
+      "EpisodeSamples": 0,
+    "stateBounded": false
+    },
+  "GridWorldContinuous":{
+      "EpisodeSamples": 2000,
+     "sparseReward": false,
+      "stateBounded": false
+    },
+  "LunarLanderContinuous-v2":{
+      "EpisodeSamples": 0,
+      "stateBounded": false
+    },
+  "Walker2d-v2":{
+      "EpisodeSamples": 0,
+      "stateBounded": false
+    },
+  "Hopper-v2":{
+      "EpisodeSamples": 0,
+      "stateBounded": false
+    },
+  "HalfCheetah-v2":{
+      "EpisodeSamples": 0,
+      "stateBounded": false
+    },
+  "Pendulum-v0":{
+      "EpisodeSamples": 0,
+      "stateBounded": false
+    },
+    "agent_names": ["ModelDDPG-LogTDHC", "PrioritizedDDPG", "DDPG"],
+  "ModelDDPG-LogTDHC":{
+    "sweeps": {
+      "gaAlpha":[0.1],
+      "noiseScale":[0.01],
+       "startTravel":[0],
+      "stopTravel":[100000],
+       "nFromQueue": [16],
+      "planningSteps": [5],
+      "maxgaloops":[500],
+      "numSCsamples": [50],
+      "search_control_frequency": [50],
+      "model_learning_rate": [0.001],
+      "useTrueModel": [false],
+ 	  "critic_factor":[10.0],
+        "tau":[0.001],
+        "gamma": [0.99],
+	  "alpha":[0.0001],
+       "n_h1":[200],
+      "n_h2":[100],
+      "model_n_h1":[200],
+      "model_n_h2":[200]
+    }
+    },
+    "DDPG":{
+      "sweeps": {
+      "planningSteps": [5],
+       "critic_factor":[10.0],
+        "tau":[0.001],
+        "gamma": [0.99],
+	  "alpha":[0.0001],
+       "n_h1":[200],
+      "n_h2":[100]
+      }
+    },
+  "PrioritizedDDPG":{
+      "sweeps": {
+      "planningSteps": [5],
+       "critic_factor":[10.0],
+        "tau":[0.001],
+        "gamma": [0.99],
+	  "alpha":[0.0001],
+       "n_h1":[200],
+      "n_h2":[100]
+    }
+    }
+}
