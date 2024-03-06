@@ -33,6 +33,14 @@ The implementation of FTA contains more functionalities than those introduced in
 
 **Wang, Han implements a Pytorch version of FTA**. The code is available at https://github.com/hwang-ua/fta_pytorch_implementation
 
+#### There are two more versions of FTA, addressing continuity issue at the point x = eta. 
+
+They mainly differ in the form of I_eta function. Recall the original form is: tf.cast(x <= eta, tf.float32) * x + tf.cast(x > eta, tf.float32)
+
+1. first alternative: tf.cast(x <= eta, tf.float32) * x/eta + tf.cast(x > eta, tf.float32), this does not really resolve continuity issue. 
+
+2. the second alternative, proposed by Sun Ke, the form is tf.minimum(x/eta, 1). 
+
 ### The category of papers about sampling experiences in model-based RL (specifically, search-control in Dyna)
 
 **Bibtex**:
